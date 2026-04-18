@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Portfolio;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -11,59 +12,65 @@ class ProductSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. Buat Kategori Utama
-        $catInfrastructure = Category::create(['name' => 'Infrastructure & Server', 'slug' => 'infrastructure-server']);
+        // 1. Kategori
+        $catInfra = Category::create(['name' => 'Infrastructure & Server', 'slug' => 'infrastructure-server']);
         $catSecurity = Category::create(['name' => 'Security System', 'slug' => 'security-system']);
         $catSoftware = Category::create(['name' => 'Software Development', 'slug' => 'software-development']);
-        $catNetworking = Category::create(['name' => 'Networking', 'slug' => 'networking']);
+        $catNetwork = Category::create(['name' => 'Networking', 'slug' => 'networking']);
 
-        // 2. Data Produk/Layanan
-        $products = [
-            [
-                'category_id' => $catInfrastructure->id,
-                'name' => 'NAS & File Server Integration',
-                'short_description' => 'Solusi penyimpanan data terpusat untuk kolaborasi tim yang aman dan efisien.',
-                'long_description' => 'Kami menyediakan layanan instalasi NAS Server menggunakan perangkat kelas industri. Cocok untuk kantor yang membutuhkan sinkronisasi data real-time, backup otomatis, dan akses data jarak jauh yang aman.',
-                'features' => ['Backup Otomatis', 'Akses Remote Aman', 'Redundansi Data (RAID)', 'User Management'],
-                'image' => 'products/nas-server.jpg',
-            ],
-            [
-                'category_id' => $catSecurity->id,
-                'name' => 'Smart CCTV Surveillance',
-                'short_description' => 'Sistem monitoring keamanan 24/7 dengan akses langsung dari perangkat mobile Anda.',
-                'long_description' => 'Instalasi CCTV profesional dengan teknologi IP Camera termutakhir. Mendukung fitur deteksi gerak, night vision, dan penyimpanan cloud maupun lokal.',
-                'features' => ['High Definition 4K', 'Mobile Apps Monitoring', 'Night Vision Ganda', 'Motion Detection'],
-                'image' => 'products/cctv-system.jpg',
-            ],
-            [
-                'category_id' => $catNetworking->id,
-                'name' => 'Enterprise Office Networking',
-                'short_description' => 'Pembangunan infrastruktur jaringan LAN/WLAN yang stabil untuk mendukung produktivitas.',
-                'long_description' => 'Pemasangan jaringan kantor skala menengah hingga besar menggunakan perangkat MikroTik/Ubiquiti. Termasuk manajemen bandwidth dan sistem keamanan firewall.',
-                'features' => ['Manajemen Bandwidth', 'Hotspot Gateway', 'Load Balancing', 'Firewall Security'],
-                'image' => 'products/networking.jpg',
-            ],
-            [
-                'category_id' => $catSoftware->id,
-                'name' => 'Custom Web & App Development',
-                'short_description' => 'Transformasikan ide bisnis Anda menjadi platform digital yang responsif dan powerful.',
-                'long_description' => 'Pembuatan website company profile, e-commerce, hingga sistem informasi manajemen yang dibangun menggunakan framework Laravel.',
-                'features' => ['Responsive Design', 'SEO Optimized', 'Integrasi API', 'Dashboard Admin Custom'],
-                'image' => 'products/software-dev.jpg',
-            ],
+        // 2. Produk (Dibuat lebih banyak per kategori)
+        $productsData = [
+            // Infrastructure
+            ['cat' => $catInfra->id, 'name' => 'NAS Storage Server', 'desc' => 'Penyimpanan terpusat aman.', 'feat' => ['RAID Support', 'Auto Backup']],
+            ['cat' => $catInfra->id, 'name' => 'Web Server Custom', 'desc' => 'Setup server Linux/Windows.', 'feat' => ['Nginx/Apache', 'SSL Setup']],
+            ['cat' => $catInfra->id, 'name' => 'Cloud Hosting', 'desc' => 'Hosting performa tinggi.', 'feat' => ['99.9% Uptime', 'DDoS Protection']],
+            // Security
+            ['cat' => $catSecurity->id, 'name' => 'Smart CCTV IP Camera', 'desc' => 'Kamera pengawas resolusi tinggi.', 'feat' => ['4K Vision', 'Mobile App']],
+            ['cat' => $catSecurity->id, 'name' => 'Access Control (Door Lock)', 'desc' => 'Sistem pintu akses biometrik.', 'feat' => ['Fingerprint', 'RFID Card']],
+            ['cat' => $catSecurity->id, 'name' => 'Alarm System Terpadu', 'desc' => 'Alarm anti-maling otomatis.', 'feat' => ['Motion Sensor', 'Sirine']],
+            // Networking
+            ['cat' => $catNetwork->id, 'name' => 'Enterprise LAN Installation', 'desc' => 'Jaringan kabel kantor stabil.', 'feat' => ['Gigabit Speed', 'Cable Management']],
+            ['cat' => $catNetwork->id, 'name' => 'Bandwidth Management', 'desc' => 'Pembagian internet merata (MikroTik).', 'feat' => ['Queue Tree', 'Firewall']],
+            ['cat' => $catNetwork->id, 'name' => 'Fiber Optic Point-to-Point', 'desc' => 'Koneksi antar gedung jarak jauh.', 'feat' => ['Low Latency', 'High Speed']],
+            // Software
+            ['cat' => $catSoftware->id, 'name' => 'Company Profile Website', 'desc' => 'Web modern untuk identitas bisnis.', 'feat' => ['Responsive', 'SEO Friendly']],
+            ['cat' => $catSoftware->id, 'name' => 'Sistem ERP Custom', 'desc' => 'Aplikasi manajemen sumber daya.', 'feat' => ['Database Terpusat', 'Realtime Chart']],
+            ['cat' => $catSoftware->id, 'name' => 'E-Commerce Platform', 'desc' => 'Toko online dengan payment gateway.', 'feat' => ['Cart System', 'Midtrans Integration']],
         ];
 
-        foreach ($products as $p) {
-            Product::create([
-                'category_id' => $p['category_id'],
+        $products = [];
+        foreach ($productsData as $p) {
+            $products[] = Product::create([
+                'category_id' => $p['cat'],
                 'name' => $p['name'],
                 'slug' => Str::slug($p['name']),
-                'image' => $p['image'],
-                'short_description' => $p['short_description'],
-                'long_description' => $p['long_description'],
-                'features' => json_encode($p['features']), // Cast ke JSON
+                'image' => null, // Biarkan null agar pakai fallback UI
+                'short_description' => $p['desc'],
+                'long_description' => 'Detail deskripsi ' . $p['name'],
+                'features' => $p['feat'], // Sudah otomatis jadi JSON karena $casts di Model
                 'is_active' => true,
             ]);
+        }
+
+        // 3. Portofolio dummy untuk ditampilkan di sisi kanan
+        $portfoliosData = [
+            ['title' => 'Instalasi Jaringan Gedung Pemkot', 'client' => 'Pemerintah Daerah'],
+            ['title' => 'Sistem CCTV Gudang Logistik', 'client' => 'PT. Logistik Cepat'],
+            ['title' => 'Pembuatan Web Portal Berita', 'client' => 'Media Nasional'],
+            ['title' => 'Setup NAS Server Farmasi', 'client' => 'Klinik Sehat'],
+        ];
+
+        foreach ($portfoliosData as $idx => $portData) {
+            $portfolio = Portfolio::create([
+                'title' => $portData['title'],
+                'client_name' => $portData['client'],
+                'image' => null,
+                'description' => 'Deskripsi proyek ' . $portData['title'],
+                'project_date' => now()->subMonths(rand(1, 10)),
+            ]);
+
+            // Kaitkan portofolio ke beberapa produk secara acak agar muncul di kategori yang sesuai
+            $portfolio->products()->attach([$products[$idx * 3]->id, $products[($idx * 3) + 1]->id]);
         }
     }
 }
