@@ -211,7 +211,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
 
-                <div class="flex-shrink-0 flex items-center">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <img src="{{ asset('img/logo-brait.png') }}" alt="Logo Brait Jaya"
+                        class="h-10 w-auto object-contain">
                     <span id="nav-logo"
                         class="font-extrabold text-2xl tracking-tight text-white transition-colors duration-300">
                         BRAIT JAYA
@@ -594,72 +596,93 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl relative inline-block">
                     Jejak Digital Keberhasilan
-                    <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full"></div>
+                    <div
+                        class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full">
+                    </div>
                 </h2>
                 <p class="mt-6 text-lg text-slate-600 font-medium max-w-2xl mx-auto">
-                    Kepercayaan adalah pondasi utama. Simak bagaimana ekosistem teknologi kami mengakselerasi produktivitas puluhan mitra bisnis.
+                    Kepercayaan adalah pondasi utama. Simak bagaimana ekosistem teknologi kami mengakselerasi
+                    produktivitas puluhan mitra bisnis.
                 </p>
             </div>
 
             <div class="perspective-container mask-cylinder h-[600px] overflow-hidden relative w-full mx-auto">
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 h-full w-full">
 
                     <div class="flex flex-col gap-6 animate-scroll-up" style="animation-duration: 40s;">
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Sistem UPT PKB sangat intuitif. Generate PDF laporan jalan lancar tanpa error."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Sistem UPT PKB sangat
+                                intuitif. Generate PDF laporan jalan lancar tanpa error."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Hendra+G&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Hendra+G&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Hendra G.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">UPT PKB Bandar Lampung</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Dashboard MyBolo sangat rapi. Membantu tim memantau metrik performa secara presisi."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Dashboard MyBolo sangat
+                                rapi. Membantu tim memantau metrik performa secara presisi."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Danu+A&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Danu+A&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Danu A.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Tim Operasional</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Manajemen Git dan auto-deploy yang di-setup tim Brait Jaya menghemat waktu rilis kami hingga 80%."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Manajemen Git dan
+                                auto-deploy yang di-setup tim Brait Jaya menghemat waktu rilis kami hingga 80%."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Sari+P&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Sari+P&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Sari P.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Lead Developer</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Sistem UPT PKB sangat intuitif. Generate PDF laporan jalan lancar tanpa error."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Sistem UPT PKB sangat
+                                intuitif. Generate PDF laporan jalan lancar tanpa error."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Hendra+G&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Hendra+G&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Hendra G.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">UPT PKB Bandar Lampung</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Dashboard MyBolo sangat rapi. Membantu tim memantau metrik performa secara presisi."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Dashboard MyBolo sangat
+                                rapi. Membantu tim memantau metrik performa secara presisi."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Danu+A&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Danu+A&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Danu A.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Tim Operasional</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Manajemen Git dan auto-deploy yang di-setup tim Brait Jaya menghemat waktu rilis kami hingga 80%."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Manajemen Git dan
+                                auto-deploy yang di-setup tim Brait Jaya menghemat waktu rilis kami hingga 80%."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Sari+P&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Sari+P&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Sari P.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Lead Developer</p>
@@ -669,60 +692,78 @@
                     </div>
 
                     <div class="hidden md:flex flex-col gap-6 animate-scroll-down" style="animation-duration: 50s;">
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Katalog CCTV e-commerce yang dibuat luar biasa responsif. CMS produknya mudah sekali digunakan."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Katalog CCTV e-commerce
+                                yang dibuat luar biasa responsif. CMS produknya mudah sekali digunakan."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Makki&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Makki&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Makki</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Store Manager</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Sistem administrasi surat SKTM mempercepat layanan staf kami secara drastis."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Sistem administrasi
+                                surat SKTM mempercepat layanan staf kami secara drastis."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Ahmad+R&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Ahmad+R&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Ahmad R.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Kantor Desa Krawang Sari</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"UI Glassmorphism di aplikasi internal kami tidak cuma cantik, tapi flow UX-nya benar-benar dipikirkan."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"UI Glassmorphism di
+                                aplikasi internal kami tidak cuma cantik, tapi flow UX-nya benar-benar dipikirkan."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Dinda+K&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Dinda+K&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Dinda K.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">UX Researcher</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Katalog CCTV e-commerce yang dibuat luar biasa responsif. CMS produknya mudah sekali digunakan."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Katalog CCTV e-commerce
+                                yang dibuat luar biasa responsif. CMS produknya mudah sekali digunakan."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Makki&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Makki&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Makki</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Store Manager</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Sistem administrasi surat SKTM mempercepat layanan staf kami secara drastis."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Sistem administrasi
+                                surat SKTM mempercepat layanan staf kami secara drastis."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Ahmad+R&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Ahmad+R&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Ahmad R.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Kantor Desa Krawang Sari</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"UI Glassmorphism di aplikasi internal kami tidak cuma cantik, tapi flow UX-nya benar-benar dipikirkan."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"UI Glassmorphism di
+                                aplikasi internal kami tidak cuma cantik, tapi flow UX-nya benar-benar dipikirkan."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Dinda+K&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Dinda+K&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Dinda K.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">UX Researcher</p>
@@ -732,60 +773,78 @@
                     </div>
 
                     <div class="hidden lg:flex flex-col gap-6 animate-scroll-up" style="animation-duration: 35s;">
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Monitoring Mikrotik terpusat membuat downtime nyaris 0%. Pengecekan Winbox jadi lebih minim."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Monitoring Mikrotik
+                                terpusat membuat downtime nyaris 0%. Pengecekan Winbox jadi lebih minim."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Reynaldi&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Reynaldi&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Reynaldi</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Network Engineer</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Integrasi Hikvision dengan server lokal kami di-config tanpa celah. Sangat recommended."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Integrasi Hikvision
+                                dengan server lokal kami di-config tanpa celah. Sangat recommended."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Fajar+W&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Fajar+W&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Fajar W.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">IT Security</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Pengaturan shift rotating untuk tim TAC menjadi transparan dan adil berkat sistem baru ini."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Pengaturan shift
+                                rotating untuk tim TAC menjadi transparan dan adil berkat sistem baru ini."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Agus+S&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Agus+S&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Agus S.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">TAC Leader</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Monitoring Mikrotik terpusat membuat downtime nyaris 0%. Pengecekan Winbox jadi lebih minim."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Monitoring Mikrotik
+                                terpusat membuat downtime nyaris 0%. Pengecekan Winbox jadi lebih minim."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Reynaldi&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Reynaldi&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Reynaldi</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Network Engineer</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Integrasi Hikvision dengan server lokal kami di-config tanpa celah. Sangat recommended."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Integrasi Hikvision
+                                dengan server lokal kami di-config tanpa celah. Sangat recommended."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Fajar+W&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Fajar+W&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Fajar W.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">IT Security</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Pengaturan shift rotating untuk tim TAC menjadi transparan dan adil berkat sistem baru ini."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Pengaturan shift
+                                rotating untuk tim TAC menjadi transparan dan adil berkat sistem baru ini."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Agus+S&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Agus+S&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Agus S.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">TAC Leader</p>
@@ -795,60 +854,78 @@
                     </div>
 
                     <div class="hidden lg:flex flex-col gap-6 animate-scroll-down" style="animation-duration: 45s;">
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Framework Tailwind & Laravel yang digunakan untuk web company profile kami bikin loading sangat ngebut."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Framework Tailwind &
+                                Laravel yang digunakan untuk web company profile kami bikin loading sangat ngebut."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Bagas&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Bagas&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Bagas</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Digital Marketing</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Kualitas tarikan kabel fiber optik untuk CCTV sangat rapi, nilai OTDR redaman juga bagus banget."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Kualitas tarikan kabel
+                                fiber optik untuk CCTV sangat rapi, nilai OTDR redaman juga bagus banget."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Tommy+L&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Tommy+L&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Tommy L.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Facilities Manager</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Kolaborasi luar biasa. Pemahaman tim soal Docker & Server Deployment sangat mature."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Kolaborasi luar biasa.
+                                Pemahaman tim soal Docker & Server Deployment sangat mature."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Cindy+A&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Cindy+A&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Cindy A.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">CTO Startup</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Framework Tailwind & Laravel yang digunakan untuk web company profile kami bikin loading sangat ngebut."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Framework Tailwind &
+                                Laravel yang digunakan untuk web company profile kami bikin loading sangat ngebut."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Bagas&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Bagas&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Bagas</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Digital Marketing</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Kualitas tarikan kabel fiber optik untuk CCTV sangat rapi, nilai OTDR redaman juga bagus banget."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Kualitas tarikan kabel
+                                fiber optik untuk CCTV sangat rapi, nilai OTDR redaman juga bagus banget."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Tommy+L&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Tommy+L&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Tommy L.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">Facilities Manager</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Kolaborasi luar biasa. Pemahaman tim soal Docker & Server Deployment sangat mature."</p>
+                        <div
+                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Kolaborasi luar biasa.
+                                Pemahaman tim soal Docker & Server Deployment sangat mature."</p>
                             <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Cindy+A&background=f1f5f9&color=0f172a&bold=true" alt="Klien" class="w-10 h-10 rounded-full">
+                                <img src="https://ui-avatars.com/api/?name=Cindy+A&background=f1f5f9&color=0f172a&bold=true"
+                                    alt="Klien" class="w-10 h-10 rounded-full">
                                 <div>
                                     <h4 class="font-bold text-slate-900 text-xs">Cindy A.</h4>
                                     <p class="text-[10px] text-brand-primary font-bold">CTO Startup</p>
