@@ -207,13 +207,13 @@
 <body class="bg-slate-50 text-slate-800 antialiased">
 
     <nav id="navbar"
-        class="fixed w-full z-50 transition-all duration-300 transform translate-y-0 bg-transparent text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        class="fixed w-full z-50 transition-all duration-300 transform translate-y-0 bg-transparent text-white py-2">
+        <div class="w-full px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
 
                 <div class="flex-shrink-0 flex items-center gap-3">
                     <img src="{{ asset('img/logo-brait.png') }}" alt="Logo Brait Jaya"
-                        class="h-10 w-auto object-contain">
+                        class="h-10 w-auto object-contain logo-silhouette transition-all duration-300">
                     <span id="nav-logo"
                         class="font-extrabold text-2xl tracking-tight text-white transition-colors duration-300">
                         BRAIT JAYA
@@ -229,18 +229,19 @@
                             <a href="#layanan"
                                 class="nav-link text-white group-hover:text-brand-primary font-semibold transition flex items-center">
                                 {{ $catNav->name }}
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </a>
 
                             <ul
-                                class="dropdown-menu absolute hidden pt-4 top-full left-0 w-64 bg-white border border-slate-100 shadow-xl rounded-xl overflow-hidden z-50 transform -translate-y-2">
+                                class="dropdown-menu absolute hidden pt-4 top-full left-0 w-64 bg-white border border-slate-100 shadow-xl rounded-xl overflow-hidden z-50 transform -translate-y-2 opacity-0 group-hover:opacity-100 group-hover:block transition-all duration-300">
                                 @foreach ($catNav->products as $prodNav)
                                     <li>
                                         <a href="#layanan"
-                                            class="block px-4 py-3 text-sm text-slate-700 hover:bg-brand-light/30 hover:text-brand-primary font-medium transition-colors border-b border-slate-50 last:border-0">
+                                            class="block px-4 py-3 text-sm text-slate-700 hover:bg-brand-primary/10 hover:text-brand-primary font-bold transition-colors border-b border-slate-50 last:border-0">
                                             {{ $prodNav->name }}
                                         </a>
                                     </li>
@@ -249,6 +250,10 @@
                         </div>
                     @endforeach
 
+                    <a href="#keunggulan"
+                        class="nav-link text-white hover:text-brand-primary font-semibold transition">Keunggulan</a>
+                    <a href="#testimoni"
+                        class="nav-link text-white hover:text-brand-primary font-semibold transition">Klien Kami</a>
                     <a href="#kontak"
                         class="nav-link text-white hover:text-brand-primary font-semibold transition">Kontak</a>
                 </div>
@@ -266,7 +271,7 @@
         </div>
 
         <div id="mobile-menu"
-            class="hidden lg:hidden bg-white shadow-xl absolute top-full left-0 w-full border-t border-slate-100 max-h-[80vh] overflow-y-auto">
+            class="hidden lg:hidden bg-white shadow-xl absolute top-full left-0 w-full border-t border-slate-100 max-h-[80vh] overflow-y-auto z-50">
             <div class="px-4 pt-2 pb-6 space-y-1">
                 <a href="#beranda"
                     class="mobile-link block px-3 py-3 text-slate-700 font-bold hover:bg-slate-50 hover:text-brand-primary rounded-md">Beranda</a>
@@ -277,14 +282,19 @@
                         <div class="pl-4 space-y-2 border-l-2 border-slate-100">
                             @foreach ($catNav->products as $prodNav)
                                 <a href="#layanan"
-                                    class="mobile-link block text-sm font-semibold text-slate-500 hover:text-brand-primary py-1">{{ $prodNav->name }}</a>
+                                    class="mobile-link block text-sm font-semibold text-slate-500 hover:text-brand-primary py-1.5">{{ $prodNav->name }}</a>
                             @endforeach
                         </div>
                     </div>
                 @endforeach
 
+                <a href="#keunggulan"
+                    class="mobile-link block px-3 py-3 text-slate-700 font-bold hover:bg-slate-50 hover:text-brand-primary rounded-md">Keunggulan</a>
+                <a href="#testimoni"
+                    class="mobile-link block px-3 py-3 text-slate-700 font-bold hover:bg-slate-50 hover:text-brand-primary rounded-md">Klien
+                    Kami</a>
                 <a href="#kontak"
-                    class="mobile-link block px-3 py-3 text-slate-700 font-bold hover:bg-slate-50 hover:text-brand-primary rounded-md border-t border-slate-100 mt-2">Kontak</a>
+                    class="mobile-link block px-3 py-3 text-slate-700 font-bold hover:bg-slate-50 hover:text-brand-primary rounded-md">Kontak</a>
             </div>
         </div>
     </nav>
@@ -505,82 +515,30 @@
                         class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full">
                     </div>
                 </h2>
-                <p class="mt-6 text-lg text-white/80 font-medium max-w-2xl mx-auto">Membangun ekosistem teknologi masa
-                    depan untuk pertumbuhan bisnis Anda di era digital perkotaan.</p>
+                <p class="mt-6 text-lg text-white/80 font-medium max-w-2xl mx-auto">
+                    Membangun ekosistem teknologi masa depan untuk pertumbuhan bisnis Anda di era digital perkotaan.
+                </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                @foreach ($advantages as $index => $item)
+                    <div class="planet-container group">
+                        <div class="planet-ring"></div>
+                        <div
+                            class="planet-card-inner shadow-2xl transition-transform duration-500 group-hover:-translate-y-2">
 
-                <div class="planet-container group">
-                    <div class="planet-ring"></div>
-                    <div
-                        class="planet-card-inner shadow-2xl transition-transform duration-500 group-hover:-translate-y-2">
-                        <div class="bg-brand-primary/10 p-4 rounded-full mb-5 w-max mx-auto">
-                            <svg class="w-8 h-8 text-brand-primary" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                                </path>
-                            </svg>
+                            <div class="text-center mb-4">
+                                <span
+                                    class="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-brand-primary to-brand-secondary/40 select-none">
+                                    {{ sprintf('%02d', $index + 1) }}
+                                </span>
+                            </div>
+
+                            <h3 class="text-lg font-bold text-slate-900 mb-3 text-center">{{ $item->title }}</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed text-center">{{ $item->description }}</p>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3 text-center">Keamanan Berlapis</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed text-center">Implementasi standar keamanan
-                            siber dan fisik terbaik untuk melindungi aset berharga perusahaan Anda.</p>
                     </div>
-                </div>
-
-                <div class="planet-container group">
-                    <div class="planet-ring"></div>
-                    <div
-                        class="planet-card-inner shadow-2xl transition-transform duration-500 group-hover:-translate-y-2">
-                        <div class="bg-brand-primary/10 p-4 rounded-full mb-5 w-max mx-auto">
-                            <svg class="w-8 h-8 text-brand-primary" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3 text-center">Kecepatan Tinggi</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed text-center">Optimasi jaringan dan server
-                            untuk memastikan seluruh operasional berjalan tanpa hambatan teknis.</p>
-                    </div>
-                </div>
-
-                <div class="planet-container group">
-                    <div class="planet-ring"></div>
-                    <div
-                        class="planet-card-inner shadow-2xl transition-transform duration-500 group-hover:-translate-y-2">
-                        <div class="bg-brand-primary/10 p-4 rounded-full mb-5 w-max mx-auto">
-                            <svg class="w-8 h-8 text-brand-primary" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
-                                </path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3 text-center">Skalabilitas Kota</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed text-center">Solusi IT yang dirancang khusus
-                            untuk tumbuh bersama perkembangan skala bisnis perkotaan Anda.</p>
-                    </div>
-                </div>
-
-                <div class="planet-container group">
-                    <div class="planet-ring"></div>
-                    <div
-                        class="planet-card-inner shadow-2xl transition-transform duration-500 group-hover:-translate-y-2">
-                        <div class="bg-brand-primary/10 p-4 rounded-full mb-5 w-max mx-auto">
-                            <svg class="w-8 h-8 text-brand-primary" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3 text-center">Tepat Waktu</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed text-center">Komitmen pengerjaan proyek sesuai
-                            jadwal untuk menjaga efisiensi waktu operasional kantor Anda.</p>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
         </div>
     </section>
@@ -607,332 +565,89 @@
             </div>
 
             <div class="perspective-container mask-cylinder h-[600px] overflow-hidden relative w-full mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-full w-full">
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 h-full w-full">
+                    @if ($testimonials->isEmpty())
+                        <div class="flex flex-col gap-6 animate-scroll-up" style="animation-duration: 40s;">
+                            <div
+                                class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100">
+                                <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Sistem UPT PKB
+                                    sangat intuitif. Laporan lancar."</p>
+                                <div class="flex items-center gap-4">
+                                    <img src="https://ui-avatars.com/api/?name=Hendra+G&background=f1f5f9&color=0f172a&bold=true"
+                                        class="w-10 h-10 rounded-full">
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-xs">Hendra G.</h4>
+                                        <p class="text-[10px] text-brand-primary font-bold">UPT PKB</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="flex flex-col gap-6 animate-scroll-up" style="animation-duration: 40s;">
+                            @foreach ($testimonials as $index => $item)
+                                @if ($index % 3 == 0)
+                                    <div
+                                        class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                                        <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">
+                                            "{{ $item->message }}"</p>
+                                        <div class="flex items-center gap-4">
+                                            <img src="https://ui-avatars.com/api/?name={{ urlencode($item->name) }}&background=f1f5f9&color=0f172a&bold=true"
+                                                alt="Klien" class="w-10 h-10 rounded-full">
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 text-xs">{{ $item->name }}</h4>
+                                                <p class="text-[10px] text-brand-primary font-bold">
+                                                    {{ $item->company_or_role }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
 
-                    <div class="flex flex-col gap-6 animate-scroll-up" style="animation-duration: 40s;">
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Sistem UPT PKB sangat
-                                intuitif. Generate PDF laporan jalan lancar tanpa error."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Hendra+G&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Hendra G.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">UPT PKB Bandar Lampung</p>
-                                </div>
-                            </div>
+                        <div class="hidden md:flex flex-col gap-6 animate-scroll-down"
+                            style="animation-duration: 45s;">
+                            @foreach ($testimonials as $index => $item)
+                                @if ($index % 3 == 1)
+                                    <div
+                                        class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                                        <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">
+                                            "{{ $item->message }}"</p>
+                                        <div class="flex items-center gap-4">
+                                            <img src="https://ui-avatars.com/api/?name={{ urlencode($item->name) }}&background=f1f5f9&color=0f172a&bold=true"
+                                                alt="Klien" class="w-10 h-10 rounded-full">
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 text-xs">{{ $item->name }}</h4>
+                                                <p class="text-[10px] text-brand-primary font-bold">
+                                                    {{ $item->company_or_role }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Dashboard MyBolo sangat
-                                rapi. Membantu tim memantau metrik performa secara presisi."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Danu+A&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Danu A.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Tim Operasional</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Manajemen Git dan
-                                auto-deploy yang di-setup tim Brait Jaya menghemat waktu rilis kami hingga 80%."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Sari+P&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Sari P.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Lead Developer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Sistem UPT PKB sangat
-                                intuitif. Generate PDF laporan jalan lancar tanpa error."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Hendra+G&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Hendra G.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">UPT PKB Bandar Lampung</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Dashboard MyBolo sangat
-                                rapi. Membantu tim memantau metrik performa secara presisi."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Danu+A&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Danu A.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Tim Operasional</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Manajemen Git dan
-                                auto-deploy yang di-setup tim Brait Jaya menghemat waktu rilis kami hingga 80%."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Sari+P&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Sari P.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Lead Developer</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="hidden md:flex flex-col gap-6 animate-scroll-down" style="animation-duration: 50s;">
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Katalog CCTV e-commerce
-                                yang dibuat luar biasa responsif. CMS produknya mudah sekali digunakan."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Makki&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Makki</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Store Manager</p>
-                                </div>
-                            </div>
+                        <div class="hidden lg:flex flex-col gap-6 animate-scroll-up" style="animation-duration: 35s;">
+                            @foreach ($testimonials as $index => $item)
+                                @if ($index % 3 == 2)
+                                    <div
+                                        class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
+                                        <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">
+                                            "{{ $item->message }}"</p>
+                                        <div class="flex items-center gap-4">
+                                            <img src="https://ui-avatars.com/api/?name={{ urlencode($item->name) }}&background=f1f5f9&color=0f172a&bold=true"
+                                                alt="Klien" class="w-10 h-10 rounded-full">
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 text-xs">{{ $item->name }}</h4>
+                                                <p class="text-[10px] text-brand-primary font-bold">
+                                                    {{ $item->company_or_role }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Sistem administrasi
-                                surat SKTM mempercepat layanan staf kami secara drastis."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Ahmad+R&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Ahmad R.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Kantor Desa Krawang Sari</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"UI Glassmorphism di
-                                aplikasi internal kami tidak cuma cantik, tapi flow UX-nya benar-benar dipikirkan."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Dinda+K&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Dinda K.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">UX Researcher</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Katalog CCTV e-commerce
-                                yang dibuat luar biasa responsif. CMS produknya mudah sekali digunakan."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Makki&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Makki</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Store Manager</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Sistem administrasi
-                                surat SKTM mempercepat layanan staf kami secara drastis."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Ahmad+R&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Ahmad R.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Kantor Desa Krawang Sari</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"UI Glassmorphism di
-                                aplikasi internal kami tidak cuma cantik, tapi flow UX-nya benar-benar dipikirkan."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Dinda+K&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Dinda K.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">UX Researcher</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hidden lg:flex flex-col gap-6 animate-scroll-up" style="animation-duration: 35s;">
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Monitoring Mikrotik
-                                terpusat membuat downtime nyaris 0%. Pengecekan Winbox jadi lebih minim."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Reynaldi&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Reynaldi</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Network Engineer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Integrasi Hikvision
-                                dengan server lokal kami di-config tanpa celah. Sangat recommended."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Fajar+W&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Fajar W.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">IT Security</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Pengaturan shift
-                                rotating untuk tim TAC menjadi transparan dan adil berkat sistem baru ini."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Agus+S&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Agus S.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">TAC Leader</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Monitoring Mikrotik
-                                terpusat membuat downtime nyaris 0%. Pengecekan Winbox jadi lebih minim."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Reynaldi&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Reynaldi</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Network Engineer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Integrasi Hikvision
-                                dengan server lokal kami di-config tanpa celah. Sangat recommended."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Fajar+W&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Fajar W.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">IT Security</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Pengaturan shift
-                                rotating untuk tim TAC menjadi transparan dan adil berkat sistem baru ini."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Agus+S&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Agus S.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">TAC Leader</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hidden lg:flex flex-col gap-6 animate-scroll-down" style="animation-duration: 45s;">
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Framework Tailwind &
-                                Laravel yang digunakan untuk web company profile kami bikin loading sangat ngebut."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Bagas&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Bagas</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Digital Marketing</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Kualitas tarikan kabel
-                                fiber optik untuk CCTV sangat rapi, nilai OTDR redaman juga bagus banget."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Tommy+L&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Tommy L.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Facilities Manager</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Kolaborasi luar biasa.
-                                Pemahaman tim soal Docker & Server Deployment sangat mature."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Cindy+A&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Cindy A.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">CTO Startup</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Framework Tailwind &
-                                Laravel yang digunakan untuk web company profile kami bikin loading sangat ngebut."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Bagas&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Bagas</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Digital Marketing</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Kualitas tarikan kabel
-                                fiber optik untuk CCTV sangat rapi, nilai OTDR redaman juga bagus banget."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Tommy+L&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Tommy L.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">Facilities Manager</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-100 transform transition-transform hover:scale-[1.02]">
-                            <p class="text-slate-700 leading-relaxed mb-6 font-medium text-sm">"Kolaborasi luar biasa.
-                                Pemahaman tim soal Docker & Server Deployment sangat mature."</p>
-                            <div class="flex items-center gap-4">
-                                <img src="https://ui-avatars.com/api/?name=Cindy+A&background=f1f5f9&color=0f172a&bold=true"
-                                    alt="Klien" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 text-xs">Cindy A.</h4>
-                                    <p class="text-[10px] text-brand-primary font-bold">CTO Startup</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endif
 
                 </div>
             </div>
@@ -1041,7 +756,10 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. Logika Switcher Kategori (Tombol Oval Atas)
+
+            // ==========================================
+            // 1. LOGIKA SWITCHER KATEGORI (Tombol Oval Atas)
+            // ==========================================
             const catTabs = document.querySelectorAll('.cat-tab');
             const catContents = document.querySelectorAll('.cat-content');
 
@@ -1068,13 +786,14 @@
                 });
             }
 
-            // 2. Logika Switcher Produk (Daftar Kiri)
+            // ==========================================
+            // 2. LOGIKA SWITCHER PRODUK (Daftar Kiri)
+            // ==========================================
             const prodTabs = document.querySelectorAll('.prod-tab');
             const prodContents = document.querySelectorAll('.prod-content');
 
             for (let i = 0; i < prodTabs.length; i++) {
                 prodTabs[i].addEventListener('click', function() {
-                    // Batasi pencarian hanya pada kategori induk dari tombol yang di-klik
                     const parentCat = this.closest('.cat-content');
 
                     // Reset tombol produk lain di kategori yang sama
@@ -1102,9 +821,13 @@
                 });
             }
 
+            // ==========================================
+            // 3. LOGIKA NAVBAR SCROLL & MOBILE MENU
+            // ==========================================
             let lastScrollTop = 0;
             const navbar = document.getElementById('navbar');
-            const navLogo = document.getElementById('nav-logo');
+            const navLogoText = document.getElementById('nav-logo');
+            const navLogoImg = document.querySelector('img.logo-silhouette'); // Target gambar logo
             const navLinks = document.querySelectorAll('.nav-link');
 
             const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -1114,16 +837,24 @@
             window.addEventListener('scroll', function() {
                 let scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-                // 1. Transparan vs Background Solid
+                // Transparan vs Background Solid Terang
                 if (scrollTop > 50) {
-                    navbar.classList.add('glass-card');
+                    // Tambahkan background solid/glass card
+                    navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
                     navbar.classList.remove('bg-transparent', 'text-white');
-                    navbar.classList.add('text-slate-700'); // Untuk warna ikon hamburger
+                    navbar.classList.add('text-slate-700');
 
-                    // Ubah logo ke warna brand
-                    navLogo.classList.remove('text-white');
-                    navLogo.classList.add('text-transparent', 'bg-clip-text', 'bg-gradient-to-r',
-                        'from-brand-primary', 'to-brand-accent');
+                    // Ubah teks logo ke warna brand gradient
+                    if (navLogoText) {
+                        navLogoText.classList.remove('text-white');
+                        navLogoText.classList.add('text-transparent', 'bg-clip-text', 'bg-gradient-to-r',
+                            'from-brand-primary', 'to-brand-accent');
+                    }
+
+                    // Hilangkan filter putih pada gambar agar kembali ke warna asli (hitam/warna brand)
+                    if (navLogoImg) {
+                        navLogoImg.classList.remove('logo-silhouette');
+                    }
 
                     // Ubah link desktop jadi abu-abu gelap
                     navLinks.forEach(link => {
@@ -1131,14 +862,22 @@
                         link.classList.add('text-slate-700');
                     });
                 } else {
-                    // Reset ke transparan (Hero Section)
-                    navbar.classList.remove('glass-card', 'text-slate-700');
+                    // Reset ke transparan (posisi di Hero Section)
+                    navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md',
+                        'text-slate-700');
                     navbar.classList.add('bg-transparent', 'text-white');
 
-                    // Reset logo ke putih
-                    navLogo.classList.add('text-white');
-                    navLogo.classList.remove('text-transparent', 'bg-clip-text', 'bg-gradient-to-r',
-                        'from-brand-primary', 'to-brand-accent');
+                    // Reset teks logo ke putih
+                    if (navLogoText) {
+                        navLogoText.classList.add('text-white');
+                        navLogoText.classList.remove('text-transparent', 'bg-clip-text', 'bg-gradient-to-r',
+                            'from-brand-primary', 'to-brand-accent');
+                    }
+
+                    // Kembalikan filter agar gambar logo kembali putih siluet
+                    if (navLogoImg) {
+                        navLogoImg.classList.add('logo-silhouette');
+                    }
 
                     // Reset link desktop ke putih
                     navLinks.forEach(link => {
@@ -1147,34 +886,42 @@
                     });
                 }
 
-                // 2. Hide on Scroll Down, Show on Scroll Up
+                // Hide Navbar saat Scroll Down, Show saat Scroll Up
                 if (scrollTop > lastScrollTop && scrollTop > 150) {
-                    // Jika scroll ke bawah (sembunyikan ke atas)
+                    // Scroll ke bawah (sembunyikan navbar ke atas)
                     navbar.classList.add('-translate-y-full');
-                    mobileMenu.classList.add('hidden'); // Auto-tutup menu mobile jika ada
+                    mobileMenu.classList.add('hidden'); // Auto-tutup menu mobile
                 } else {
-                    // Jika scroll ke atas (munculkan)
+                    // Scroll ke atas (munculkan navbar)
                     navbar.classList.remove('-translate-y-full');
                 }
 
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
             });
 
-            // 3. Hamburger Menu Toggle
+            // ==========================================
+            // 4. HAMBURGER MENU TOGGLE (MOBILE)
+            // ==========================================
             mobileBtn.addEventListener('click', function() {
                 mobileMenu.classList.toggle('hidden');
-                // Pastikan navbar ber-background solid jika menu dibuka saat masih di atas
+
+                // Jika menu dibuka saat posisi masih di paling atas, 
+                // pastikan navbar berubah warna sedikit agar terbaca
                 if (window.scrollY <= 50) {
-                    navbar.classList.toggle('glass-card');
+                    navbar.classList.toggle('bg-slate-900/90');
+                    navbar.classList.toggle('backdrop-blur-md');
                 }
             });
 
-            // 4. Tutup Menu Mobile jika link diklik
+            // ==========================================
+            // 5. TUTUP MENU MOBILE SAAT LINK DIKLIK
+            // ==========================================
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
                 });
             });
+
         });
     </script>
 </body>

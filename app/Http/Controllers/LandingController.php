@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\HeroSection;
 use App\Models\Product;
 use App\Models\Portfolio;
+use App\Models\Category;
+use App\Models\Advantage;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -13,8 +16,9 @@ class LandingController extends Controller
     {
         // Mengambil data aktif dari database
         $hero = HeroSection::where('is_active', true)->first();
-        $categories = \App\Models\Category::with(['products.portfolios'])->get();
+        $categories = Category::with(['products.portfolios'])->get();
+        $advantages = Advantage::orderBy('order_position', 'asc')->get();
+        $testimonials = Testimonial::latest()->get();
 
-        return view('welcome', compact('hero', 'categories'));
-    }
+        return view('welcome', compact('hero', 'categories', 'advantages', 'testimonials'));    }
 }
