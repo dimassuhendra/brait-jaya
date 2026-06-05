@@ -378,7 +378,7 @@
                                         @endif
 
                                         <div class="mt-auto pt-4 border-t border-slate-100">
-                                            <a href="#modal-{{ $product->id }}" class="inline-flex items-center text-sm font-bold text-brand-primary group-hover:text-brand-secondary transition-colors">
+                                            <a href="{{ route('layanan.show', $product->id) }}" class="inline-flex items-center text-sm font-bold text-brand-primary group-hover:text-brand-secondary transition-colors">
                                                 Pelajari Lebih Lanjut
                                                 <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                             </a>

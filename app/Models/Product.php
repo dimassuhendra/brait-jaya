@@ -42,4 +42,13 @@ class Product extends Model
     {
         return $this->belongsToMany(Portfolio::class);
     }
+
+    public function prices()
+    {
+        return $this->hasMany(ProductPrice::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
